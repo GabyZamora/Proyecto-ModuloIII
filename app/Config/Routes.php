@@ -37,6 +37,24 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+//Login
+$routes->get('/', 'LoginController::index');
+$routes->get('/signin', 'LoginController::index');
+$routes->get('/profile', 'Profile::index',['filter' => 'authGuard']);
+//usuarios
+$routes->get('listar', 'Usuarios::index');
+$routes->get('crear', 'Usuarios::crear');
+$routes->post('guardar', 'Usuarios::guardar');
+$routes->get('borrar/(:num)', 'Usuarios::borrar/$1');
+$routes->get('editar/(:num)', 'Usuarios::editar/$1');
+//roles
+$routes->get('roles/listar', 'Roles::index');
+$routes->get('roles/crear', 'Roles::crear');
+$routes->post('roles/guardar', 'Roles::guardar');
+$routes->get('roles/borrar/(:num)', 'Roles::borrar/$1');
+$routes->get('roles/editar/(:num)', 'Roles::editar/$1');
+$routes->post('roles/actualizar', 'Roles::actualizar');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

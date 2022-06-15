@@ -35,12 +35,10 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
 
 //Login
 $routes->get('/', 'LoginController::index');
-$routes->get('/signin', 'LoginController::index');
-$routes->get('/profile', 'Profile::index',['filter' => 'authGuard']);
+$routes->post('login', 'LoginController::login');
 //usuarios
 $routes->get('listar', 'Usuarios::index');
 $routes->get('crear', 'Usuarios::crear');
@@ -54,7 +52,20 @@ $routes->post('roles/guardar', 'Roles::guardar');
 $routes->get('roles/borrar/(:num)', 'Roles::borrar/$1');
 $routes->get('roles/editar/(:num)', 'Roles::editar/$1');
 $routes->post('roles/actualizar', 'Roles::actualizar');
-
+//centros
+$routes->get('centros/listar', 'Centros::index');
+$routes->get('centros/crear', 'Centros::crear');
+$routes->post('centros/guardar', 'Centros::guardar');
+$routes->get('centros/borrar/(:num)', 'Centros::borrar/$1');
+$routes->get('centros/editar/(:num)', 'Centros::editar/$1');
+$routes->post('centros/actualizar', 'Centros::actualizar');
+//incidentes
+$routes->get('incidentes/listar', 'Incidentes::index');
+$routes->get('incidentes/crear', 'Incidentes::crear');
+$routes->post('incidentes/guardar', 'Incidentes::guardar');
+$routes->get('incidentes/borrar/(:num)', 'Incidentes::borrar/$1');
+$routes->get('incidentes/editar/(:num)', 'Incidentes::editar/$1');
+$routes->post('incidentes/actualizar', 'Incidentes::actualizar');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

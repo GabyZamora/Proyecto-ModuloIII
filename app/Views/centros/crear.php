@@ -1,13 +1,36 @@
+<?= $this->extend('/template/admin_template') ?>
+
+<?= $this->section('content') ?>
+ <!-- Content Header (Page header) -->
+ <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="listar">Regresar</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+        <!-- Main content -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
 <?=$cabecera?>
     Formulario de crear
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-tittle">Agregar Rol</h5>
+            <h5 class="card-tittle">Agregar Centro</h5>
             <p class="card-text">
                 <form method="post" action="<?=site_url('centros/guardar')?>" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="nombre">Centro</label>
+                        <label for="nombre">Nombre de Centro</label>
                         <input id="nombre" class="form-control" type="text" name="nombre">
                     </div>
                     <div class="form-group">
@@ -20,3 +43,4 @@
         </div>
     </div>
 <?=$pie?>
+<?= $this->endSection() ?>

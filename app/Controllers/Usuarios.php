@@ -83,7 +83,7 @@ class Usuarios extends Controller
         $datos['cabecera']= view('template/cabecera');
         $datos['piepagina']= view('template/piepagina');
 
-        return view('usuarios/editar', $datos);
+        return view('usuario/editar', $datos);
     }
 
     public function actualizar()

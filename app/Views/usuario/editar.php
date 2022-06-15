@@ -8,7 +8,7 @@
         <div class="card-body">
             <h5 class="card-tittle">Editar Rol</h5>
             <p class="card-text">
-                <form method="post" action="<?=site_url('/actualizar')?>" enctype="multipart/form-data">
+                <form method="post" action="<?=site_url('usuario/actualizar')?>" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?=$usuario['IdUsuario']?>">
 <div class="form-group">
     <label for="nombre">Nombre Completo</label>

@@ -23,7 +23,7 @@
 </head>
 
 <?=$cabecera?>
-<a class="btn btn-success" href="<?=base_url('crear')?>">Crear un nuevo Usuario  </a>
+<a class="btn btn-success" href="<?=base_url('usuarios/crear')?>">Crear un nuevo Usuario  </a>
     
     <div class="container">
         <table class="table table-dark">
@@ -36,7 +36,7 @@
                     <th>DUI</th>
                     <th>Telefono </th>
                     <th>Correo Electronico</th>
-                    <th> Fecha de Nacimiento </th>>
+                    <th> Fecha de Nacimiento </th>
                     <th>Acciones </th>
                 </tr>
             </thead>
@@ -53,8 +53,8 @@
                     <td><?=$usuario['CorreoUsuario']; ?> </td>
                     <td><?=$usuario['FechaNacimiento']; ?> </td>
                    
-                    <td><a href="<?=base_url('editar/'.$usuario['IdUsuario']);?>" class="btn btn-primary" type="button">Editar</button> 
-                    <a href="<?=base_url('borrar/'.$usuario['IdUsuario']);?>" class="btn btn-danger" type="button">Borrar</button>
+                    <td><a href="<?=base_url('usuarios/editar/'.$usuario['IdUsuario']);?>" class="btn btn-primary" type="button">Editar</button> 
+                    <a href="<?=base_url('usuarios/borrar/'.$usuario['IdUsuario']);?>" class="btn btn-danger" type="button">Borrar</button>
                     </td>
                 </tr>
                 <?php endforeach; ?>

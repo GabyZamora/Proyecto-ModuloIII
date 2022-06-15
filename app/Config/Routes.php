@@ -40,11 +40,11 @@ $routes->set404Override();
 $routes->get('/', 'LoginController::index');
 $routes->post('login', 'LoginController::login');
 //usuarios
-$routes->get('listar', 'Usuarios::index');
-$routes->get('crear', 'Usuarios::crear');
-$routes->post('guardar', 'Usuarios::guardar');
-$routes->get('borrar/(:num)', 'Usuarios::borrar/$1');
-$routes->get('editar/(:num)', 'Usuarios::editar/$1');
+$routes->get('usuario/listar', 'Usuarios::index');
+$routes->get('usuario/crear', 'Usuarios::crear');
+$routes->post('usuario/guardar', 'Usuarios::guardar');
+$routes->get('usuario/borrar/(:num)', 'Usuarios::borrar/$1');
+$routes->get('usuario/editar/(:num)', 'Usuarios::editar/$1');
 //roles
 $routes->get('roles/listar', 'Roles::index');
 $routes->get('roles/crear', 'Roles::crear');

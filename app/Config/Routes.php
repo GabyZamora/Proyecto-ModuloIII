@@ -37,8 +37,9 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 //Login
-$routes->get('/', 'LoginController::index');
-$routes->post('login', 'LoginController::login');
+$routes->get('/', 'Home::index');
+$routes->get('/inicio', 'Home::inicio');
+$routes->post('/login', 'Home::login');
 //usuarios
 $routes->get('usuario/listar', 'Usuarios::index');
 $routes->get('usuario/crear', 'Usuarios::crear');
@@ -59,6 +60,13 @@ $routes->post('centros/guardar', 'Centros::guardar');
 $routes->get('centros/borrar/(:num)', 'Centros::borrar/$1');
 $routes->get('centros/editar/(:num)', 'Centros::editar/$1');
 $routes->post('centros/actualizar', 'Centros::actualizar');
+//dispositivos
+$routes->get('dispositivos/listar', 'Dispositivos::index');
+$routes->get('dispositivos/crear', 'Dispositivos::crear');
+$routes->post('dispositivos/guardar', 'Dispositivos::guardar');
+$routes->get('dispositivos/borrar/(:num)', 'Dispositivos::borrar/$1');
+$routes->get('dispositivos/editar/(:num)', 'Dispositivos::editar/$1');
+$routes->post('dispositivos/actualizar', 'Dispositivos::actualizar');
 //incidentes
 $routes->get('incidentes/listar', 'Incidentes::index');
 $routes->get('incidentes/crear', 'Incidentes::crear');

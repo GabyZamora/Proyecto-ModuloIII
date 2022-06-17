@@ -4,14 +4,14 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Usuario;
+use App\Models\Rol;
 
 class Usuarios extends Controller
 {
 
     public function ListarTodoCombos() {
-		$usuario = "SELECT * FROM roles
-		ORDER BY NombreRol ASC";
-		return $this->EjecutarQuery( $usuario );
+		$rol = new Rol();
+        $listaroles['roles'] = $rol->orderBy('NombreRol')->findAll();
 	}
 
     public function index()
@@ -83,7 +83,7 @@ class Usuarios extends Controller
         $datos['cabecera']= view('template/cabecera');
         $datos['piepagina']= view('template/piepagina');
 
-        return view('usuario/editar', $datos);
+        return view('usuarios/editar', $datos);
     }
 
     public function actualizar()

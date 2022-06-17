@@ -51,7 +51,6 @@ class Roles extends Controller{
     }
 
     public function editar($id=null){
-        print_r($id);
 
         $rol= new Rol();
         $datos['rol']=$rol->where('IdRol',$id)->first();

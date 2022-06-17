@@ -4,7 +4,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class Usuario extends Model{
-    protected $table      = 'usuarios';
+    protected $table = 'usuarios';
     // Uncomment below if you want add primary key
     protected $primaryKey = 'IdUsuario';
     protected $useAutoIncrement = true;

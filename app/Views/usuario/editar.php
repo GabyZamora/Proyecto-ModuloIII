@@ -1,8 +1,5 @@
-<?= $this->extend('template/admin_template') ?>
 
-<?php
- print_r($usuario);
-?>
+<?=$cabecera?>
 
 <div class="card">
         <div class="card-body">
@@ -19,14 +16,6 @@
     <input id="usuario" class="form-control" type="text" name="usuario">
 </div>
 
-<div class="form-group">
-      <label for="inputState">Rol</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-
-</div>
 
 <div class="form-group">
     <label for="telefono">Telefono</label>

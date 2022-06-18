@@ -51,7 +51,6 @@ class Centros extends Controller{
     }
 
     public function editar($id=null){
-        print_r($id);
 
         $Centro= new Centro();
         $datos['Centro']=$Centro->where('IdCentro',$id)->first();

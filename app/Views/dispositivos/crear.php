@@ -1,4 +1,5 @@
 <?=$cabecera?>
+
     Formulario de crear
 
     <div class="card">
@@ -16,6 +17,15 @@
                         <label for="modelo">Modelo</label>
                         <input id="modelo" class="form-control" type="text" name="modelo">
                     </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Centro de cómputo</label>
+                        <select id="inputState" class="form-control" id="centro" name="centro" size="1">
+                            <option value="0">Seleccione...</option>
+                            <?php foreach($centros as $centro): ?>
+                                <option value="<?=$centro->IdCentro?>"><?=$centro->nombreCentro?></option>
+                            <?php endforeach?>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="descripcion">Descripcion</label>
                         <textarea name="descripcion" id="descripcion" class="form-control" cols="10" rows="5"></textarea>
@@ -27,4 +37,4 @@
             </p>
         </div>
     </div>
-<?=$pie?>
+</body>

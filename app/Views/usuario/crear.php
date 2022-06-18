@@ -24,13 +24,15 @@ Crear nuevo usuario
 </div>
 
 <div class="form-group col-md-4">
-      <label for="inputState">Rol</label>
-      <select id="inputState" class="form-control" name="rol" size="1">
-        <option value="">Seleccione...</option>
-      </select>
+                        <label for="inputState">Centro de cómputo</label>
+                        <select id="inputState" class="form-control" id="centro" name="centro" size="1">
+                            <option value="0">Seleccione...</option>
+                            <?php foreach($roles as $rol): ?>
+                                <option value="<?=$rol->IdRol?>"><?=$rol->nombreRol?></option>
+                            <?php endforeach?>
+                        </select>
 </div>
 
-</div>
 <div class="form-group">
     <label for="telefono">Telefono</label>
     <input id="telefono" class="form-control" type="text" name="telefono">

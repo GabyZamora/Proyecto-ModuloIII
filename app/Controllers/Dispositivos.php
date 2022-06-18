@@ -8,54 +8,41 @@ use App\Models\Dispositivo;
 class Dispositivos extends Controller
 {
 
-    public function ListarTodoCombos() {
-		$dispositivo = "SELECT * FROM dispositivos
-		ORDER BY IdCentro ASC";
-		return $this->EjecutarQuery( $dispositivo );
-	}
 
     public function index()
     {
         $dispositivo= new Dispositivo();
         $datos['dispositivos']= $dispositivo->orderBy('IdDispositivo','ASC')->paginate(10);
-
-        $paginador=$dispositivo->pager;
-        $datos['paginador']=$paginador;
-        $paginador->setPath('ci4/');
-        
         $datos['cabecera']= view('template/cabecera');
         $datos['piepagina']= view('template/piepagina');
 
         return view('dispositivos/listar', $datos);
     }
 
-   
-
     public function crear()
     {
-        
+        $model = model('centros');
+        $datos['centros'] = $model->findAll();
         $datos['cabecera']= view('template/cabecera');
-        $datos['pie']= view('template/piepagina');
-
         return view('dispositivos/crear', $datos);
     }
 
     public function guardar()
     {
      
-        $dispositivo = new dispositivo();
+        $dispositivo = new Dispositivo();
         $datos=[
-
-            $NombreDispositivo= $this->request->getVar('nombreDispositivo'),
-            $MarcaDispositivo= $this->request->getVAr('marcaDispositivo'),
-            $ModeloDispositivo = $this->request->getVAr('modeloDispositivo'),
-            $IdCentro = $this->request->getVAr('IdCentro')
+            'nombreDispositivo'=>$this->request->getVar('nombre'),
+            'descripcionDispositivo'=> $this->request->getVar('descripcion'),
+            'marcaDispositivo'=>$this->request->getVar('marca'),
+            'modeloDispositivo'=>$this->request->getVar('modelo'),
+            'IdCentro'=>$this->request->getVar('centro')
         ];
 
         $dispositivo->insert($datos);
        
 
-       return $this->responsive->redirect(site_url('/listar'));
+       return $this->response->redirect(site_url('dispositivos/listar'));
     }
     
     public function borrar($id=null)
@@ -66,7 +53,7 @@ class Dispositivos extends Controller
 
         $dispositivo->where('Iddispositivo',$id)->delete($id);
 
-        return $this->responsive->redirect(site_url('/listar'));
+        return $this->responsive->redirect(site_url('dispositivos/listar'));
     }
 
     public function editar($id=null)
@@ -85,10 +72,11 @@ class Dispositivos extends Controller
     {
         $dispositivo=new dispositivo();
         $datos=[
-            'NombreDispositivo'=>$this->request->getVar('nombreDispositivo'),
-            'MarcaDispositivo'=>$this->request->getVar('marcaDispositivo'),
-            'ModeloDispositivo'=>$this->request->getVar('modeloDispositivo'),
-            'IdCentro'=>$this->request->getVar('IdCentro')
+            'NombreDispositivo'=>$this->request->getVar('nombre'),
+            'MarcaDispositivo'=>$this->request->getVar('marca'),
+            'ModeloDispositivo'=>$this->request->getVar('modelo'),
+            'IdCentro'=>$this->request->getVar('centro'),
+            'Descripcion'=>$this->request->getVar('descripcion')
 
         ];
         $id=$this->request->getVar('id');

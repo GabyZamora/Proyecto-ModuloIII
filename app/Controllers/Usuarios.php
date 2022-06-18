@@ -18,10 +18,6 @@ class Usuarios extends Controller
     {
         $usuario= new Usuario();
         $datos['usuarios']= $usuario->orderBy('IdUsuario','ASC')->paginate(10);
-
-        $paginador=$usuario->pager;
-        $datos['paginador']=$paginador;
-        $paginador->setPath('ci4/');
         
         $datos['cabecera']= view('template/cabecera');
         $datos['piepagina']= view('template/piepagina');
@@ -33,7 +29,8 @@ class Usuarios extends Controller
 
     public function crear()
     {
-        
+        $model = model('roles');
+        $datos['roles'] = $model->findAll();
         $datos['cabecera']= view('template/cabecera');
         $datos['pie']= view('template/piepagina');
 

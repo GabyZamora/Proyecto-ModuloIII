@@ -1,12 +1,17 @@
+<?php
 
+ob_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 
-<?=$cabecera?>
-
-<a class="btn btn-success" href="<?=base_url('centros/crear')?>">Crear un nuevo centro  </a>
-<a class="btn btn-warning" href="<?=base_url('reportes/centrosReporte')?>">Imprimir</a>
-
-
-    <div class="container">
         <table class="table table-light">
             <thead class="thead-light">
                 <tr>
@@ -23,10 +28,6 @@
                     <td><?=$centro['IdCentro']; ?></td>
                     <td><?=$centro['nombreCentro']; ?></td>
                     <td><?=$centro['descripcionCentro']; ?> </td>
-                   
-                    <td><a href="<?=base_url('centros/editar/'.$centro['IdCentro']);?>" class="btn btn-primary" type="button">Editar</button> 
-                    <a href="<?=base_url('centros/borrar/'.$centro['IdCentro']);?>" class="btn btn-danger" type="button">Borrar</button>
-                    </td>
                 </tr>
                 <?php endforeach; ?>
         </tbody>
@@ -39,5 +40,20 @@
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+</body>
+</html>
+<?php
+    $html=ob_get_clean();
+    //echo $html;
+    
+    use Dompdf\Dompdf;
 
+    $dompdf = new Dompdf();
+    $dompdf->loadHtml($html);
 
+    //$dompdf->setPaper('letter');
+    $dompdf->setPaper('A4', 'landscape');
+    $dompdf->render();
+    $dompdf->stream("archivo_.pdf", array("Attachment" =>false));
+
+?>

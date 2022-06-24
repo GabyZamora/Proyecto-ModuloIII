@@ -9,30 +9,30 @@
                     <input type="hidden" name="id" value="<?=$usuario['IdUsuario']?>">
 <div class="form-group">
     <label for="nombre">Nombre Completo</label>
-    <input id="nombre" value="$usuario['NombreUsuario']" class="form-control" type="text" name="nombre">
+    <input id="nombre" value="<?=$usuario['NombreUsuario']?>" class="form-control" type="text" name="nombre">
 </div>
 <div class="form-group">
     <label for="usuario">Usuario</label>
-    <input id="usuario" class="form-control" type="text" name="usuario">
+    <input id="usuario" value="<?=$usuario['Usuario']?>"class="form-control" type="text" name="usuario">
 </div>
 
 
 <div class="form-group">
     <label for="telefono">Telefono</label>
-    <input id="telefono" value="$usuario['TelUsuario']" class="form-control" type="text" name="telefono">
+    <input id="telefono" value="<?=$usuario['TelUsuario']?>" class="form-control" type="text" name="telefono">
 </div>
 
 <div class="form-group">
     <label for="correo">Correo Electronico</label>
-    <input id="correo" value="$usuario['CorreoUsuario']" class="form-control" type="text" name="correo">
+    <input id="correo" value="<?=$usuario['CorreoUsuario']?>" class="form-control" type="text" name="correo">
 </div>
 <div class="form-group">
     <label for="fnacimiento">Fecha de Nacimiento</label>
-    <input id="fnacimiento" value="$usuario['nombre']" class="form-control" type="text" name="fnacimiento">
+    <input id="fnacimiento" value="<?=$usuario['FechaNacimiento']?>" class="form-control" type="text" name="fnacimiento">
 </div>
 <div class="form-group">
     <label for="Contra" >Password </label>
-    <input id="contra" value="$PASSWROD['PASSWORD']" class="form-control" type="text" name="contra">
+    <input id="contra" value="<?=$usuario['PASSWORD']?>" class="form-control" type="password" name="contra">
 </div>
 <div>
 
@@ -45,4 +45,3 @@
 
 
 </form>
-<?=$pie;?>

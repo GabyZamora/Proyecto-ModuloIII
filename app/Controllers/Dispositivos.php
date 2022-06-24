@@ -11,8 +11,10 @@ class Dispositivos extends Controller
 
     public function index()
     {
+        $model = model('Centro');
         $dispositivo= new Dispositivo();
         $datos['dispositivos']= $dispositivo->orderBy('IdDispositivo','ASC')->paginate(10);
+        $datos['centros'] = $model->findAll();
         $datos['cabecera']= view('template/cabecera');
         $datos['piepagina']= view('template/piepagina');
 
@@ -47,18 +49,14 @@ class Dispositivos extends Controller
     
     public function borrar($id=null)
     {
-        $dispositivo= new dispositivo();
-        $datosDispositivo=$dispositivo->where('id',$id)->first();
-        \unlink($ruta);
-
-        $dispositivo->where('Iddispositivo',$id)->delete($id);
-
-        return $this->responsive->redirect(site_url('dispositivos/listar'));
+        $dispositivo= new Dispositivo();
+        $datosDispositivo=$dispositivo->where('idDispositivo',$id)->first();
+        $dispositivo->where('IdDispositivo',$id)->delete($id);
+        return $this->response->redirect(site_url('dispositivos/listar'));
     }
 
     public function editar($id=null)
     {
-        print_r($id);
         $dispositivo= new dispositivo();
         $datos['dispositivo']=$dispositivo->where('IdDispositivo',$id)->first();
 

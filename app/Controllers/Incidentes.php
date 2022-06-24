@@ -3,6 +3,10 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Incidente;
+use App\Models\Centro;
+use App\Models\Dispositivo;
+use App\Models\Estado;
+
 class Incidentes extends Controller{
 
     public function index(){
@@ -18,7 +22,12 @@ class Incidentes extends Controller{
     }
 
     public function crear(){
-
+        $model = model('Estado');
+        $datos['estados'] = $model->findAll();
+        $models = model('centros');
+        $datos['centros'] = $models->findAll();
+        $modelos = model('dispositivos');
+        $datos['dispositivos'] = $modelos->findAll();
         $datos['cabecera'] = view('template/cabecera');
         $datos['pie'] = view('template/piepagina');
 
@@ -31,7 +40,11 @@ class Incidentes extends Controller{
 
         $datos = [
             'nombreIncidente'=>$this->request->getVar('nombre'),
-            'DescripcionIncidente'=>$this->request->getVar('descripcion')
+            'DescripcionIncidente'=>$this->request->getVar('descripcion'),
+            'IdEstado'=>$this->request->getVar('estado'),
+            'IdCentro'=>$this->request->getVar('centro'),
+            'IdDispositivo'=>$this->request->getVar('dispositivo')
+
         ];
 
         $Incidente->insert($datos);
@@ -51,7 +64,6 @@ class Incidentes extends Controller{
     }
 
     public function editar($id=null){
-        print_r($id);
 
         $Incidente= new Incidente();
         $datos['Incidente']=$Incidente->where('IdIncidente',$id)->first();
@@ -67,7 +79,10 @@ class Incidentes extends Controller{
         $Incidente = new Incidente();
         $datos = [
             'nombreIncidente'=>$this->request->getVar('nombre'),
-            'descripcionIncidente'=>$this->request->getVar('descripcion')
+            'DescripcionIncidente'=>$this->request->getVar('descripcion'),
+            'IdEstado'=>$this->request->getVar('estado'),
+            'IdCentro'=>$this->request->getVar('centro'),
+            'IdDispositivo'=>$this->request->getVar('dispositivo')        
         ];
         $id = $this->request->getVar('id');
 

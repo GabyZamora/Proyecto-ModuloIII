@@ -9,7 +9,7 @@ class Usuario extends Model{
     protected $primaryKey = 'IdUsuario';
     protected $useAutoIncrement = true;
     protected $returnType = "array";
-    protected $allowedFields = ['NombreUsuario','Usuario','DuiUsuario','CorreoUsuario','FechaNacimiento','PASSWORD'];
+    protected $allowedFields = ['NombreUsuario','Usuario','IdRol','DuiUsuario','TelUsuario','CorreoUsuario','FechaNacimiento','PASSWORD'];
     protected $validationRules = [];
     protected $validationMessages = [];
     protected $skipValidation = [];

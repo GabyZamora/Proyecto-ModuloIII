@@ -6,6 +6,7 @@
     <title>Gestion de Centros de Computo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -30,6 +31,20 @@
                             <li><a class="dropdown-item" href="/dispositivos/listar">Dispositivos</a></li>
                             <li><a class="dropdown-item" href="/incidentes/listar">Incidentes</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Reportes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="/reportes/usuarioReporte">Usuarios</a></li>
+                            <li><a class="dropdown-item" href="/reportes/centrosReporte">Centros</a></li>
+                            <li><a class="dropdown-item" href="/reportes/dispositivoReporte">Dispositivos</a></li>
+                            <li><a class="dropdown-item" href="/reportes/incidenteReporte">Incidentes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Cerrar sesión</a>
                     </li>
                 </ul>
             </div>

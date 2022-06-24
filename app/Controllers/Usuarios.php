@@ -43,21 +43,21 @@ class Usuarios extends Controller
         $usuario = new Usuario();
         $datos=[
 
-            $NombreUsuario= $this->request->getVar('NombreUsuario'),
-            $Usuario= $this->request->getVAr('Usuario'),
-            $DuiUsuario= $this->request->getVAr('DuiUsuario'),
-            $Usuario= $this->request->getVAr('Usuario'),
-            $TelUsuario= $this->request->getVAr('TelUsuario'),
-            $CorreoUsuario= $this->request->getVAr('CorreoUsuario'),
-            $FechaNacimiento= $this->request->getVAr('FechaNacimiento'),
-            $PASSWORD= $this->request->getVAr('PASSWORD')
+            'NombreUsuario'=> $this->request->getVar('nombre'),
+            'Usuario'=> $this->request->getVar('usuario'),
+            'IdRol'=> $this->request->getVar('rol'),
+            'DuiUsuario'=> $this->request->getVar('dui'),
+            'TelUsuario'=> $this->request->getVar('telefono'),
+            'CorreoUsuario'=> $this->request->getVar('correo'),
+            'FechaNacimiento'=> $this->request->getVar('fnacimiento'),
+            'PASSWORD'=> $this->request->getVar('contra')
 
         ];
 
         $usuario->insert($datos);
        
 
-       return $this->responsive->redirect(site_url('/listar'));
+       return $this->response->redirect(site_url('usuario/listar'));
     }
     
     public function borrar($id=null)
@@ -68,7 +68,7 @@ class Usuarios extends Controller
 
         $usuario->where('IdUsuario',$id)->delete($id);
 
-        return $this->responsive->redirect(site_url('/listar'));
+        return $this->response->redirect(site_url('usuario/listar'));
     }
 
     public function editar($id=null)
@@ -80,19 +80,21 @@ class Usuarios extends Controller
         $datos['cabecera']= view('template/cabecera');
         $datos['piepagina']= view('template/piepagina');
 
-        return view('usuarios/editar', $datos);
+        return view('usuario/editar', $datos);
     }
 
     public function actualizar()
     {
         $usuario=new Usuario();
         $datos=[
-            'NombreUsuario'=>$this->request->getVar('NombreUsuario'),
-            'Usuario'=>$this->request->getVar('Usuario'),
-            'DuiUsuario'=>$this->request->getVar('Duiusuario'),
-            'TelUsuario'=>$this->request->getVar('TelUsuario'),
-            'CorreoUsuario'=>$this->request->getVar('CorreoUsuario'),
-            'PASSWORD'=>$this->request->getVar('PASSWORD')
+            'NombreUsuario'=> $this->request->getVar('nombre'),
+            'Usuario'=> $this->request->getVar('usuario'),
+            'IdRol'=> $this->request->getVar('rol'),
+            'DuiUsuario'=> $this->request->getVar('dui'),
+            'TelUsuario'=> $this->request->getVar('telefono'),
+            'CorreoUsuario'=> $this->request->getVar('correo'),
+            'FechaNacimiento'=> $this->request->getVar('fnacimiento'),
+            'PASSWORD'=> $this->request->getVar('contra')
         ];
         $id=$this->request->getVar('id');
         $usuario->update($id,$datos);

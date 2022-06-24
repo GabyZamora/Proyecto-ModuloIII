@@ -1,9 +1,17 @@
+<?php
 
-<?=$cabecera?>
-
-<a href="<?=base_url('dispositivos/crear');?>"><button type="button" class="btn btn-success">Agregar Dispositivo</button> </a>
-<a class="btn btn-warning" href="<?=base_url('reportes/dispositivosReporte')?>">Imprimir</a>
-
+ob_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
         <table class="table table-light">
             <thead class="thead-light">
                 <tr>
@@ -27,12 +35,25 @@
                     <td><?=$Dispositivo['modeloDispositivo']; ?></td>
                     <td><?=$Dispositivo['IdCentro']; ?></td>
                     <td><?=$Dispositivo['descripcionDispositivo']; ?></td>
-                    <td>
-                    <a href="<?=base_url('dispositivos/editar/'.$Dispositivo['IdDispositivo']); ?>" type="button" class="btn btn-info">Editar</a>
-                    <a href="<?=base_url('dispositivos/borrar/'.$Dispositivo['IdDispositivo']); ?>" type="button" class="btn btn-danger">Borrar</a>
-                    </td>
                 </tr>
                 
                 <?php endforeach; ?>
             </tbody>
         </table>
+</body>
+</html>
+<?php
+    $html=ob_get_clean();
+    //echo $html;
+    
+    use Dompdf\Dompdf;
+
+    $dompdf = new Dompdf();
+    $dompdf->loadHtml($html);
+
+    //$dompdf->setPaper('letter');
+    $dompdf->setPaper('A4', 'landscape');
+    $dompdf->render();
+    $dompdf->stream("archivo_.pdf", array("Attachment" =>false));
+
+?>

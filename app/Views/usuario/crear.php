@@ -1,9 +1,6 @@
 
 <?=$cabecera?>
 
-
-
-
 Crear nuevo usuario
 
 <div class="card">
@@ -24,13 +21,18 @@ Crear nuevo usuario
 </div>
 
 <div class="form-group col-md-4">
-                        <label for="inputState">Centro de cómputo</label>
-                        <select id="inputState" class="form-control" id="centro" name="centro" size="1">
+                        <label for="rol">Rol</label>
+                        <select id="rol" class="form-control" id="rol" name="rol" size="1">
                             <option value="0">Seleccione...</option>
                             <?php foreach($roles as $rol): ?>
                                 <option value="<?=$rol->IdRol?>"><?=$rol->nombreRol?></option>
                             <?php endforeach?>
                         </select>
+</div>
+
+<div class="form-group">
+    <label for="dui">DUI</label>
+    <input id="dui" class="form-control" type="text" name="dui">
 </div>
 
 <div class="form-group">
@@ -43,10 +45,10 @@ Crear nuevo usuario
 </div>
 <div class="form-group">
     <label for="fnacimiento">Fecha de Nacimiento</label>
-    <input id="fnacimiento" class="form-control" type="text" name="fnacimiento">
+    <input id="fnacimiento" class="form-control" type="date" name="fnacimiento">
 </div>
 <div class="form-group">
-    <label for="Contra" >Password </label>
+    <label for="contra" >Password </label>
     <input id="contra" class="form-control" type="text" name="contra">
 </div>
 <div>
@@ -61,7 +63,7 @@ Crear nuevo usuario
 
 
 </form>
-<script>
+<!---<script>
     $rol = $_GET["rol"];
         switch ($rol){
         case 'mostrar_roles':
@@ -75,5 +77,5 @@ return "action: ".$_POST['mostrar_roles'];
 }
       </script>
 
-<script src="usuario/roles.js"></script>
+<script src="usuario/roles.js"></script>--->
 <?$pie?>

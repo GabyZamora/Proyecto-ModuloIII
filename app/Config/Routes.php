@@ -74,6 +74,11 @@ $routes->post('incidentes/guardar', 'Incidentes::guardar');
 $routes->get('incidentes/borrar/(:num)', 'Incidentes::borrar/$1');
 $routes->get('incidentes/editar/(:num)', 'Incidentes::editar/$1');
 $routes->post('incidentes/actualizar', 'Incidentes::actualizar');
+//reportes
+$routes->get('reportes/usuarioReporte', 'Reportes::usuarios');
+$routes->get('reportes/dispositivosReporte', 'Reportes::dispositivos');
+$routes->get('reportes/centrosReporte', 'Reportes::centros');
+$routes->get('reportes/incidentesReporte', 'Reportes::incidentes');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

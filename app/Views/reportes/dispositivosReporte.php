@@ -21,7 +21,9 @@ ob_start();
                     <th>Modelo</th>
                     <th>Centro</th>
                     <th>Descripcion</th>
-                    <th>Acciones</th>
+                    <th>Descripcion</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Modificación</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +37,8 @@ ob_start();
                     <td><?=$Dispositivo['modeloDispositivo']; ?></td>
                     <td><?=$Dispositivo['IdCentro']; ?></td>
                     <td><?=$Dispositivo['descripcionDispositivo']; ?></td>
+                    <td><?=$Dispositivo['fechaIngreso']; ?></td>
+                    <td><?=$Dispositivo['fechaModificacion']; ?></td>
                 </tr>
                 
                 <?php endforeach; ?>

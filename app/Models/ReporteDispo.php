@@ -3,9 +3,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Centro extends Model{
-    protected $table = 'centros';
+class ReporteDispo extends Model{
+    protected $table = 'dispositivos';
     // Uncomment below if you want add primary key
-    protected $primaryKey = 'IdCentro';
-    protected $allowedFields = ['nombreCentro', 'descripcionCentro'];
+    protected $primaryKey = 'IdDispositivo';
+    protected $allowedFields = ['nombreDispositivo', 'descripcionDispositivo', 'marcaDispositivo', 'modeloDispositivo', 'fechaIngreso', 'fechaModificacion'];
 }

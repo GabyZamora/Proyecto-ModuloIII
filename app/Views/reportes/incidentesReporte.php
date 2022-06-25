@@ -21,7 +21,8 @@ ob_start();
                     <th>Dispositivo</th>
                     <th>Centro</th>
                     <th>Estado</th>
-                    <th>Acciones</th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Modificación</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,8 @@ ob_start();
                     <td><?=$Incidente['IdDispositivo']; ?></td>
                     <td><?=$Incidente['IdCentro']; ?></td>
                     <td><?=$Incidente['IdEstado']; ?></td>
+                    <td><?=$Incidente['fechaIngreso']; ?></td>
+                    <td><?=$Incidente['fechaModificacion']; ?></td>
                 </tr>
                 
                 <?php endforeach; ?>

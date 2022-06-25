@@ -18,7 +18,8 @@ ob_start();
                     <th>Id</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
-                    <th>Acciones </th>
+                    <th>Fecha Ingreso</th>
+                    <th>Fecha Modificación</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,7 +28,9 @@ ob_start();
                 <tr>
                     <td><?=$centro['IdCentro']; ?></td>
                     <td><?=$centro['nombreCentro']; ?></td>
-                    <td><?=$centro['descripcionCentro']; ?> </td>
+                    <td><?=$centro['descripcionCentro']; ?></td>
+                    <td><?=$centro['fechaIngreso']; ?> </td>
+                    <td><?=$centro['fechaModificacion']; ?> </td>
                 </tr>
                 <?php endforeach; ?>
         </tbody>
